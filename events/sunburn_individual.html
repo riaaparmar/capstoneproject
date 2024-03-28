@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunburn Festival</title>
+    
+    <style>
+        body {
+            
+            background: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .left-side, .right-side {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .grey-line,
+        .black-line {
+            border-right: 1px solid #ccc; /* Thin grey line */
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .black-line {
+            border-right: 1px solid #000; /* Thin black line */
+        }
+
+        /* Button Styles */
+        .book-button {
+            font-family: 'Single Day', cursive;
+            position: absolute;
+            left: px;
+            bottom: 1px;
+            right: 136px;
+            background: linear-gradient(to right,crimson, coral);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .book-button:hover {
+            background: linear-gradient(to left, coral, crimson);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-side">
+            <img class="logo" src="../Images/Event1_logo.png" alt="SunBurn Logo">
+        </div>
+        <div class="grey-line"></div>
+        <div class="black-line"></div>
+        <div class="right-side">
+            <h1>SunBurn Festival</h1>
+            <p>Sunburn Festival is a commercial electronic dance music festival held in India. The festival grew to become the 3rd largest dance festival in the world.</p>
+            <div class="event-details">
+                <p>Date: January 15, 2025</p>
+                <p>Time: 7:00 PM onwards</p>
+                <p>Venue: Bandra</p>
+                <p>Tickets for: 1500</p>
+            </div>
+        </div>
+        <a href="../tickets.html">
+        <button class="book-button">Book Tickets</button></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ticketCounts</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #dc143c, #ff4500);
+            margin-top: 30;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: black;
+        }
+        .title{
+            color: black;
+            font-size: large;
+            text-align: center;
+            margin-top: 0px;
+            text-decoration:underline;
+            font-size: larger;
+            font-weight: 500;
+        }
+        .layout{
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        hr {
+            height: 0.8px;
+            background: black;
+            border: none;
+            position: relative;
+        }
+        .ticket-btn {
+            font-size: 16px;
+            padding: 8px 13px;
+            cursor: pointer;
+            background-color:#dc143c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .ticket-btn:hover {
+            background-color:#dc143c;
+
+        }
+        .sub{
+            width: 280px;
+            height: 100%;
+            padding: 10px;
+        }
+        .sub a{
+            background: linear-gradient(to right, #dc143c, #ff4500);
+            color: #fff;
+            width: 80%;
+            padding: 15px;
+            margin: px 0px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: medium;
+            text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="title">
+            Select Category
+        </div><br>
+        <hr>
+        <h2>Phase 1</h2>
+        <p>₹5100</p>
+        <button class="ticket-btn" id="phase1AddBtn" onclick="toggleButton('phase1')">Add</button>
+        <button class="ticket-btn" id="phase1DecreaseBtn" style="display: none;" onclick="decreaseTicket('phase1')">-</button>
+        <span id="phase1TicketCount" style="display: none;">0</span>
+        <button class="ticket-btn" id="phase1IncreaseBtn" style="display: none;" onclick="increaseTicket('phase1')">+</button>
+        <hr>
+        <h2>Phase 2</h2>
+        <p>₹4100</p>
+        <button class="ticket-btn" id="phase2AddBtn" onclick="toggleButton('phase2')">Add</button>
+        <button class="ticket-btn" id="phase2DecreaseBtn" style="display: none;" onclick="decreaseTicket('phase2')">-</button>
+        <span id="phase2TicketCount" style="display: none;">0</span>
+        <button class="ticket-btn" id="phase2IncreaseBtn" style="display: none;" onclick="increaseTicket('phase2')">+</button>
+        <hr>
+        <h2>Phase 3</h2>
+        <p>₹4100</p>
+        <button class="ticket-btn" id="phase3AddBtn" onclick="toggleButton('phase3')">Add</button>
+        <button class="ticket-btn" id="phase3DecreaseBtn" style="display: none;" onclick="decreaseTicket('phase3')">-</button>
+        <span id="phase3TicketCount" style="display: none;">0</span>
+        <button class="ticket-btn" id="phase3IncreaseBtn" style="display: none;" onclick="increaseTicket('phase3')">+</button>
+        <hr><br>
+        <!-- Repeat for other phases -->
+
+        <center>
+        <div class="sub">
+            <a href="payment_page.html">Submit</a>
+        </div>
+        </center>
+    </div>
+
+    <script>
+        var ticketCounts = {
+            phase1: 0,
+            phase2: 0,
+            phase3: 0,
+            // Add other phases here
+        };
+
+        function toggleButton(phase) {
+            var addBtn = document.getElementById(phase + "AddBtn");
+            var decreaseBtn = document.getElementById(phase + "DecreaseBtn");
+            var increaseBtn = document.getElementById(phase + "IncreaseBtn");
+            var ticketCountDisplay = document.getElementById(phase + "TicketCount");
+
+            if (addBtn.innerText === "Add") {
+                ticketCounts[phase] = 1;
+                addBtn.innerText = "Cancel";
+                decreaseBtn.style.display = 'inline-block';
+                increaseBtn.style.display = 'inline-block';
+                ticketCountDisplay.style.display = 'inline-block';
+                ticketCountDisplay.textContent = ticketCounts[phase];
+            } else {
+                ticketCounts[phase] = 0;
+                addBtn.innerText = "Add";
+                decreaseBtn.style.display = 'none';
+                increaseBtn.style.display = 'none';
+                ticketCountDisplay.style.display = 'none';
+            }
+        }
+
+        function increaseTicket(phase) {
+            if (ticketCounts[phase] < 10) {
+                ticketCounts[phase]++;
+                updateTicketCount(phase);
+            }
+        }
+
+        function decreaseTicket(phase) {
+            if (ticketCounts[phase] > 0) {
+                ticketCounts[phase]--;
+                updateTicketCount(phase);
+            }
+            if (ticketCounts[phase] === 0) {
+                toggleButton(phase);
+            }
+        }
+
+        function updateTicketCount(phase) {
+            var ticketCountDisplay = document.getElementById(phase + "TicketCount");
+            ticketCountDisplay.textContent = ticketCounts[phase];
+            if (ticketCounts[phase] === 0) {
+                ticketCountDisplay.style.display = 'none';
+            } else {
+                ticketCountDisplay.style.display = 'inline-block';
+            }
+        }
+    </script>
+
+
+
+
+</body>
+</html>

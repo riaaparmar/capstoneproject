@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite Horizontal Image Slider</title>
+<style>
+    .slider-container {
+        overflow: hidden;
+        width: 100%;
+        height: 200px; /* Adjust height as needed */
+        position: relative;
+        margin-bottom: 20px; /* Added space between two containers */
+    }
+
+    .image-slider {
+        white-space: nowrap;
+        position: absolute;
+        height: 100%; /* Fill container height */
+    }
+
+    .image-slider img {
+        display: inline;
+        width: auto; /* Adjust image size as needed */
+        height: 100%; /* Fill container height */
+        margin-right: 0px; /* Adjust spacing between images */
+    }
+
+    /* Slide left animation */
+    @keyframes slideLeft {
+        from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-150px * 5));
+	}
+    }
+
+    /* Slide right animation */
+    @keyframes slideRight {
+        from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(150px * 5));
+	}
+    }
+
+    /* Apply animation to sliders */
+    .slider-container.left .image-slider {
+        animation: slideLeft 10s linear infinite; /* Adjust duration as needed */
+    }
+
+    .slider-container.right .image-slider {
+        animation: slideRight 10s linear infinite; /* Adjust duration as needed */
+    }
+</style>
+</head>
+<body>
+
+<div class="slider-container left">
+    <div class="image-slider">
+        <!-- Dummy images -->
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <!-- Duplicate the images to create a loop -->
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <!-- Add more dummy images here if needed -->
+    </div>
+</div>
+
+<div class="slider-container right">
+    <div class="image-slider">
+        <!-- Dummy images -->
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <!-- Duplicate the images to create a loop -->
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <img src="https://via.placeholder.com/200x200" alt="Image 1">
+        <img src="https://via.placeholder.com/200x200" alt="Image 2">
+        <img src="https://via.placeholder.com/200x200" alt="Image 3">
+        <img src="https://via.placeholder.com/200x200" alt="Image 4">
+        <!-- Add more dummy images here if needed -->
+    </div>
+</div>
+
+</body>
+</html>

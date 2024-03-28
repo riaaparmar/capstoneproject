@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+ body {
+            /* background: linear-gradient(to right, #dc143c, #ff4500); */
+            background-color: #D5E7EC;
+            
+        }
+        form {
+            margin-top: 60px;
+            width: 100%;
+            max-width: 375px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 2px;
+            color: #333;
+            text-align: center;
+            margin-left: 1.5px;
+            font-size: 16px;
+        }
+        label{
+        float: inline-start;
+    }
+    input[type=text],
+        input[type=password],
+        input[type=tel],
+        input[type=email],
+        select[type=select] {
+            width: 100%;
+            padding: 8.5px;
+            margin-bottom: 0px;
+            box-sizing:border-box;
+            /* border: 1px solid #ccc; */
+            border: none;
+            border-bottom: 2px solid #bdd9e1;
+            border-radius: 0px;
+            font-size: 15px;
+            color: #333;
+        }
+
+button {
+            /* background: linear-gradient(to right, #dc143c, #ff4500); */
+            background-color: #ff0a3e ;
+            color: #fff;
+            font-size: medium;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        button:hover {
+            opacity: 0.7;
+        }
+label{
+    float: inline-start;
+}
+h4{
+    color:#333 ;
+}
+.input input:focus{
+            outline: 0;
+        }
+        .input.success input{
+            border-color: #D5E7EC;
+        }
+        .input.error input{
+            border-color: #dc143c;
+        }
+        .input .error{
+            color:red;
+            font-size: 13px;
+            height: 13px;
+
+        }
+        .input{
+            font-size: 15px;
+        }
+        .error{
+            margin-bottom: 3px;
+            
+        }
+</style>
+</head>
+
+<body>
+    <center>
+<form id="id" action="#">
+
+<h2>SIGN UP</h2><br>
+
+<div class="input">
+<label for="name"></label>
+<input type="text" id="name" name="name" placeholder="Enter Name" ><br>
+<div class="error"></div>
+</div>
+
+<div class="input">
+<label for="number"></label>
+<input type="tel" id="number" name="number" placeholder="Number" ><br>
+<div class="error"></div>
+</div>
+ 
+<div class="input">
+<label for="email"></label>
+<input type="email" id="email" name="email" placeholder="Email" ><br>
+<div class="error"></div>
+</div>
+
+
+<label for="State"></label>
+<select type="select" id="State" name="State" required>
+<option value="Maharashtra">Maharashtra</option>
+</select><br><br>
+
+<label for="City"></label>
+<select type="select" id="City" name="City" required>
+<option value="Mumbai">Mumbai</option>
+</select><br><br>
+
+<label for="Age Group"></label>
+<select type="select" id="Age Group" name="Age Group" required>
+<option value="18">18</option>
+<option value="19-25">19-25</option>
+<option value="Above 25">Above 25</option>
+</select><br><br>
+
+
+<div class="input">
+    <label><b> </b></label>
+    <input type="password" id="password" placeholder="Set Password" name="password">
+    <div class="error"></div>
+    </div>
+ 
+
+    <button type="submit">Sign Up</button>
+<p>By clicking sign up you are <br>agreeing to our <a href="terms_and_conditions.html">Terms and Conditions</a></p>
+<h4>Already have an account? <a href="sign-in_page.html">Sign In</a></h4>
+</form>
+</center>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('id');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const number = document.getElementById('number');
+        const password = document.getElementById('password');
+
+    
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+        });
+    
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+    
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success');
+        };
+    
+        const setSuccess = element => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+    
+            errorDisplay.innerText = '';
+            inputControl.classList.add('success');
+            inputControl.classList.remove('error');
+        };
+    
+        const isValidEmail = email => {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        };
+    
+        const validNumber = number => {
+            const numberPattern = /^[0-9]{10}$/;
+            return numberPattern.test(number);
+            const numberchar = a
+        };
+    
+        const validateInputs = () => {
+            const nameValue = name.value.trim();
+            const emailValue = email.value.trim();
+            const numberValue = number.value.trim();
+            const passwordValue = password.value.trim();
+    
+            if (nameValue === '') {
+                setError(name, 'Name is required');
+            } else {
+                setSuccess(name);
+            }
+    
+            if (emailValue === '') {
+                setError(email, 'Email is required');
+            } else if (!isValidEmail(emailValue)) {
+                setError(email, 'Provide a valid email address');
+            } else {
+                setSuccess(email);
+            }
+
+            if (!validNumber(numberValue)) {
+                setError(number, 'Enter a valid phone number');
+            } else {
+                setSuccess(number);
+            }
+    
+            if (passwordValue === '') {
+                setError(password, 'Password is required');
+            } else if (passwordValue.length < 8) {
+                setError(password, 'Password must be at least 8 characters');
+            } else {
+                setSuccess(password);
+            }
+        };
+    });
+    </script>
+</html>

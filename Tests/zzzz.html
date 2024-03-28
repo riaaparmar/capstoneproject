@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <form id="validations" onsubmit="return formvalidation()">
+            
+            <button type="submit">Submit</button>
+            
+        </form>
+
+<script>
+    function formvalidation(){
+        var username= prompt("Enter username");
+        var password= prompt("Enter password");
+
+        if(username===""){
+            alert("Enter Value in username");
+            return false;
+        }
+        if(password.length<8){
+            alert("Password must be greater than 8 characters");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+    </body>
+</html>

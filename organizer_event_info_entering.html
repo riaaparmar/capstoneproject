@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Organizer's Portal</title>
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: linear-gradient(to right, #dc143c, #ff4500);
+margin: 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+min-height: 100vh;
+color: #fff;
+}
+form {
+width: 100%;
+max-width: 400px;
+
+background-color: #fff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+h2 {
+color: #333;
+text-align: center;
+}
+label {
+display: block;
+margin-bottom: 8px;
+color: #333;
+}
+input, select {
+width: 100%;
+padding: 20px;
+margin-bottom: 20px;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+button {
+background: linear-gradient(to right, #dc143c, #ff4500);
+color: #fff;
+padding: 12px;
+border: none;
+
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+font-size: 16px;
+}
+button:hover {
+background: linear-gradient(to right, #b20c2b, #e63800);
+}
+</style>
+</head>
+<body>
+    <form action="payment_page.html" method="post" onsubmit="return dateAndVenueValidation()">
+        <h2>Event Organizer's Portal</h2>
+    
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" name="eventName" required>
+    
+        <label for="eventDate">Event Date:</label>
+        <input type="date" id="eventDate" name="eventDate" required>
+    
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" name="venue" required>
+    
+        <label for="organizerName">Organizer Name:</label>
+        <input type="text" id="organizerName" name="organizerName" required>
+    
+        <label for="contactEmail">Contact Email:</label>
+        <input type="email" id="contactEmail" name="contactEmail" required>
+    
+        <label for="description">Event Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+    
+        <button type="submit">Proceed to Payment</button>
+    </form>
+    
+    <script>
+    function dateAndVenueValidation() {
+  var eventDate = document.getElementById('eventDate').value;
+  var venue = document.getElementById('venue').value.toLowerCase(); // Convert venue to lowercase
+  
+  var systemDate = new Date();
+  
+  if (new Date(eventDate) < systemDate) {
+    alert("Invalid Date!");
+  }
+  
+  // Array of Mumbai locations (converted to lowercase)
+  var mumbaiLocations = [
+    "chhatrapati shivaji maharaj terminus", "churchgate", "mumbai central", "dadar", "bandra", "andheri", "goregaon", "malad", "borivali", "kandivali", "kurla", "thane", "mulund", "ghatkopar", "vashi", "panvel",
+    "tardeo", "worli", "colaba", "malabar hill", "bandra", "andheri", "goregaon", "malad", "borivali", "kandivali", "chembur", "mulund", "bhandup", "vikhroli", "powai", "santacruz", "vile parle", "jogeshwari"
+  ];
+  
+  // Convert venue to lowercase and check if it exists in mumbaiLocations array
+  if (!mumbaiLocations.includes(venue)) {
+    alert('Invalid Location (Event out of Mumbai)');
+  } else {
+    alert("Form Submitted successfully");
+  }
+}
+
+    </script>
+    </body>
+    </html>

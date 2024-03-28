@@ -1,0 +1,103 @@
+<html>
+
+<style>
+    body {
+	background-color: #2E3537;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapper {
+	background-color: #E1E2E2;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+        height: 200px; /* Adjust height as needed */
+}
+
+.wrapper:before, .wrapper:after {
+	content: "";
+	position: absolute;
+	height: 200px;
+	width: 150px;
+	z-index: 2;
+}
+
+.wrapper:after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+
+.wrapper:before {
+	left: 0;
+	top: 0;
+}
+
+.wrapper .track {
+	display: flex;
+	width: calc(150px * 10);
+	animation: scroll 10s linear infinite;
+}
+
+.wrapper .logo {
+	width: 150px;
+}
+
+.wrapper .logo img {
+	height: 90px;
+}
+
+@keyframes  scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-150px * 5));
+	}
+}
+</style>
+
+
+<body>
+    <div class="wrapper">
+        <div class="track">
+            <div class="logo">
+                <img src="Images/clubs_image.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/2.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/3.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/4.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/5.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/1.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/2.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/3.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/4.png"/>
+            </div>
+            <div class="logo">
+                <img src="logos/5.png"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

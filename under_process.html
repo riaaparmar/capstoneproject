@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Event Review</title> 
+<style> 
+body { 
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+background: #f4f4f4; 
+margin: 0; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+min-height: 100vh; 
+color: #333; 
+} 
+ 
+        .container { 
+            text-align: center; 
+        } 
+ 
+        .icon { 
+            font-size: 60px; 
+            margin-bottom: 20px; 
+        } 
+ 
+        h2 { 
+            color: #333; 
+            margin-bottom: 10px; 
+        } 
+ 
+        p { 
+            margin-bottom: 20px; 
+        } 
+ 
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 20px; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        } 
+ 
+        button { 
+            background: linear-gradient(to right, #dc143c, #ff4500); 
+            color: #fff; 
+            padding: 12px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 16px; 
+        } 
+ 
+        button:hover { 
+            background: linear-gradient(to right, #b20c2b, #e63800); 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <div class="container"> 
+        <div class="icon">🔄</div> 
+        <h2>Your Event is under review</h2> 
+        <p>Upload might take up to 24 hours.</p> 
+        <p>Enter email ID to receive an email when uploaded:</p> 
+        <input type="email" id="email" name="email" placeholder="Enter your email" required> 
+       <a href="thank_you_for_uploading.html"> <button type="button">Notify Me</button> </a>
+    </div> 
+ 
+</body> 
+</html> 

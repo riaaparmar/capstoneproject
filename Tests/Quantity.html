@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookMyShow Ticket Adding Button</title>
+<style>
+  
+  .ticket-btn {
+    font-size: 16px;
+
+    
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ticket-btn:hover {
+    background-color: #ff4d4d;
+  }
+</style>
+</head>
+<body>
+
+<div id="buttonsContainer">
+  <button class="ticket-btn" id="addBtn" onclick="toggleButton()">Add</button>
+  <button class="ticket-btn" id="decrease" style="display: none;" onclick="decreaseTicket()">-</button>
+  <span id="ticketCount" style="display: none;">0</span>
+  <button class="ticket-btn" id="increase" style="display: none;" onclick="increaseTicket()">+</button>
+</div>
+
+<script>
+  var ticketCount = 0;
+  var ticketCountDisplay = document.getElementById("ticketCount");
+  var addBtn = document.getElementById("addBtn");
+  var decreaseBtn = document.getElementById("decrease");
+  var increaseBtn = document.getElementById("increase");
+
+  function toggleButton() {
+    if (addBtn.innerText === "Add") {
+      addBtn.innerText = "Cancel";
+      decreaseBtn.style.display = 'inline-block';
+      increaseBtn.style.display = 'inline-block';
+      ticketCountDisplay.style.display = 'inline-block';
+    } else {
+      addBtn.innerText = "Add";
+      decreaseBtn.style.display = 'none';
+      increaseBtn.style.display = 'none';
+      ticketCountDisplay.style.display = 'none';
+    }
+  }
+
+  function increaseTicket() {
+    if (ticketCount < 10) {
+      ticketCount++;
+      updateTicketCount();
+    }
+  }
+
+  function decreaseTicket() {
+    if (ticketCount > 0) {
+      ticketCount--;
+      updateTicketCount();
+    }
+    if (ticketCount === 0) {
+      toggleButton();
+    }
+  }
+
+  function updateTicketCount() {
+    ticketCountDisplay.textContent = ticketCount;
+    if (ticketCount === 0) {
+      ticketCountDisplay.style.display = 'none';
+    } else {
+      ticketCountDisplay.style.display = 'inline-block';
+    }
+  }
+</script>
+
+</body>
+</html>

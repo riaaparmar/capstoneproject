@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #dc143c, #ff4500);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: linear-gradient(to right, #dc143c, #ff4500);
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #b20c2b, #e63800);
+        }
+        .input input:focus{
+            outline: 0;
+        }
+        .input.success input{
+            border-color: aquamarine;
+        }
+        .input.error input{
+            border-color: #dc143c;
+        }
+        .input .error{
+            color:red;
+            font-size: 13px;
+            height: 13px;
+
+        }
+        .input{
+            font-size: 15px;
+        }
+        .error{
+            margin-bottom: 3px;
+        }
+    </style>
+   
+</head>
+<body>
+    <form id="formId" action="under_process.html" method="post" onsubmit="return validatePayment()">
+        <h2>Secure Payment Details</h2>
+
+       <div class="input">
+        <label for="cardNumber">Enter Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+        <div class="error"></div>
+       </div>
+
+        <div class="input"><label for="expiryDate">Expiry Date:</label>
+            <input type="date" id="expiryDate" name="expiryDate" required>
+            <div class="error"></div>
+        </div>
+
+        <div class="input">
+            <label for="cvv">CVV Number:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        <div class="error"></div>
+        </div>
+
+        <div class="input">
+            <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="cheque">Cheque</option>
+            <option value="wireTransfer">Wire Transfer</option>
+            <option value="cash">Cash</option>
+        </select>
+        <div class="error"></div>
+        </div>
+        <button type="submit">Proceed Payment</button>    
+    </form>
+    <script>
+        function validatePayment(){
+            // Fetching input values
+            var cardNumber = document.getElementById('cardNumber').value;
+            var expiryDate = document.getElementById('expiryDate').value;
+            var cvv = document.getElementById('cvv').value;
+            var systemDate = new Date();
+            
+            const setError = (element, message) => {
+                const inputControl = element.parentElement;
+                const errorDisplay = inputControl.querySelector('.error');
+                errorDisplay.innerText = message;
+                inputControl.classList.add('error');
+                inputControl.classList.remove('success');
+            };
+
+            const setSuccess = element => {
+                const inputControl = element.parentElement;
+                const errorDisplay = inputControl.querySelector('.error');
+                errorDisplay.innerText = '';
+                inputControl.classList.add('success');
+                inputControl.classList.remove('error');
+            };
+
+            // Validating card number
+            if (cardNumber.length !== 16 || !(/^\d+$/.test(cardNumber))) {
+                setError(document.getElementById('cardNumber'), 'Invalid card Number');
+                return false; // Prevent form submission
+            } else {
+                setSuccess(document.getElementById('cardNumber'));
+            }
+
+            // Validating expiry date
+            if (new Date(expiryDate) <= systemDate) {
+                setError(document.getElementById('expiryDate'), 'Card has Expired');
+                return false; // Prevent form submission
+            } else {
+                setSuccess(document.getElementById('expiryDate'));
+            }
+
+            // Validating CVV
+            if (cvv.length !== 3 || !(/^\d+$/.test(cvv))) {
+                setError(document.getElementById('cvv'), 'Invalid CVV Number');
+                return false; // Prevent form submission
+            } else {
+                setSuccess(document.getElementById('cvv'));
+            }
+
+            return true; // Allow form submission if all validations pass
+        }
+    </script>
+   
+</body>
+</html>

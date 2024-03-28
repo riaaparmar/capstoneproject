@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Caveat', cursive;
+    font-family: 'Lora', serif;
+    font-family: 'Quicksand', sans-serif;
+}
+body{
+    background-color: #f8f8f8;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: #ff0a3e;
+    /* background: linear-gradient(to right,  #ff1617, #fe005a, #ff1617 ); */
+    box-shadow: 0 0 10px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+}
+
+.logo {
+    height: 47%;
+    width: 47%;
+    display: flex;
+    margin-left: 25px;
+    padding: 10px;
+}
+
+
+
+.header ul {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    flex-wrap: wrap;
+}
+
+.header li {
+    margin-left: 15px;
+}
+
+.header li a {
+    
+    text-decoration: none;
+    padding: 10px;
+}
+
+.header li a:hover {
+  
+    transition: .4s;
+}
+
+#sign a {
+    color:#fff;
+    background-color:#ffcba4;
+    border-radius: 70px;
+    padding: 9px 18px;
+    font-size: 15px;
+}
+
+#sign a:hover {
+    background-color: #ffcba4;
+}
+
+
+/*Search Bar*/
+input[type="search"] {
+    border: none;
+    background:#FFF5EE;
+    margin: 0;
+    padding: 7px 30px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: 30px;
+  }
+  
+  input[type="search"]::placeholder {
+    color: #bbb;
+  }
+  form.nosubmit {
+    border: none;
+    padding: 3px;
+  }
+  
+  input.nosubmit {
+    width: 260px;
+    border: 0px;
+    display: block;
+    padding: 9px 5px 9px 40px;
+    background: #FFF5EE url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+  } 
+
+  input[type="search"]:focus {
+    box-shadow: 0 0 0px 0 #ffcba4;
+    border-color: #ffcba4;
+    outline: none;
+  }
+
+/* Mega dropdown*/
+
+* {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 18px;  
+  border: none;
+  outline: none;
+  color: white;
+  margin: 0; 
+  background-color: #ffcba4;
+  height: 40px;
+  /* border-radius: 50px;
+  padding: 10px 20px; */
+  border-radius: 70px;
+    padding: 8px 18px;
+    font-size: 15px;
+}
+
+.header a:hover, .dropdown:hover .dropbtn {
+  border-radius: 35px ;
+  
+}
+.dropdown:hover .dropbtn{
+  
+  border-radius: 70px;
+    padding: 7px 18px;
+    font-size: 15px;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 4px;
+}
+
+.dropdown-content .head {
+  background:#D5E7EC;
+  padding: 8px;
+  color: #212121;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.3%;
+  padding: 10px;
+  background-color: #F9F9F9;
+  height: 272px;
+  
+}
+
+
+.column a {
+  float: none;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: large;
+  margin-top: 4px;
+  color: #212121;
+  font-weight: 400;
+}
+
+.column2 img {
+    float: none;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 33.33%;
+    height: 270px;
+
+  }
+  
+.column a:hover {
+  background-color: #D5E7EC;
+  opacity: 2;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: 80%;
+  }
+}
+
+</style>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="#"> 
+        </div>
+        <ul>
+            <li> 
+                <div class="dropdown">
+                    <button class="dropbtn"><b><center>Categories </center></b>
+                      
+                    </button>
+                    <div class="dropdown-content">
+                      <div class="head">
+                        <h2>Categories</h2>
+                      </div>   
+                      <div class="row">
+                        <div class="column">
+                          <h3></h3>
+                          <a href="#">Music</a>
+                          <a href="#">Comedy</a>
+                          <a href="#">Screening</a>
+                          <a href="#">Theatre</a>
+                          <a href="#">Art</a>
+                        </div>
+                        <div class="column">
+                          <h3></h3>
+                          <a href="#">Workshop</a>
+                          <a href="#">Summer Camp</a>
+                          <a href="#">Dance</a>
+                          <a href="#">Flea Market</a>
+                          <a href="#">View All</a>
+                        </div>
+                        <div class="column2">
+                          <img src="Images/aly-ko-qnR7o118st8-unsplash.2.jpg">
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+            </li>
+            <li>
+                <form class="nosubmit">
+                    <input class="nosubmit" type="search" placeholder="Search...">
+                  </form>
+            </li>
+            <li id="sign"><a href="sign-in-customer.html"><b>Sign In</b></a></li>
+        </ul>
+    </div>
+
+
+</body>
+</html>
