@@ -291,5 +291,83 @@
             <li><a href="contact-us.html">Contact Us</a></li>
         </ul>
     </div>
+    <?php
+
+$servername = 'localhost';
+$username = 'RBR';
+$password = 'password';
+$dbname = 'TechnicalProject';
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
+} else {
+    echo("Connection Successful");
+}
+
+$sql2 = "CREATE TABLE Atendees (
+    Atendee_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    DOB DATE,
+    Mail VARCHAR(100) NOT NULL
+)";
+
+$sql3 = "CREATE TABLE Organizer (
+    Organizer_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Registered_name VARCHAR(100) NOT NULL,
+    Mail VARCHAR(100) NOT NULL
+)";
+
+$sql4 = "CREATE TABLE Payment (
+    Payment_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    CVV VARCHAR(3) NOT NULL,
+    Card_exp_date DATE,
+    Acc_No VARCHAR(100) NOT NULL
+)";
+
+$sql1 = "CREATE TABLE Events (
+    Event_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Time VARCHAR(10) NOT NULL,
+    Date DATE,
+    Description VARCHAR(100) NOT NULL,
+    Venue VARCHAR(100) NOT NULL,
+    Price VARCHAR(100),
+    Atendee_id INT(6) UNSIGNED,
+    Organizer_id INT(6) UNSIGNED,
+    FOREIGN KEY (Atendee_id) REFERENCES Atendees(Atendee_id),
+    FOREIGN KEY (Organizer_id) REFERENCES Organizer(Organizer_id)
+)";
+
+// Execute SQL queries
+if (mysqli_query($conn, $sql2)) {
+    echo "Table Atendees created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+if (mysqli_query($conn, $sql3)) {
+    echo "Table Organizer created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+if (mysqli_query($conn, $sql4)) {
+    echo "Table Payment created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+if (mysqli_query($conn, $sql1)) {
+    echo "Table Events created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+
+?>
+
+
 </body>
 </html>
